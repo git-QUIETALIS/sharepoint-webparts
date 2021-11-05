@@ -1,0 +1,24 @@
+{
+    "authors": "William Sears <https://github.com/mrbigdog2u>",
+    "libraryDependencies": [],
+    "moduleDependencies": [],
+    "libraryMajorVersion": 1,
+    "libraryMinorVersion": 16,
+    "typeScriptVersion": "2.0",
+    "libraryName": "Sinon",
+    "typingsPackageName": "sinon",
+    "projectName": "http://sinonjs.org/",
+    "sourceRepoURL": "https://www.github.com/DefinitelyTyped/DefinitelyTyped",
+    "sourceBranch": "master",
+    "globals": [
+        "sinon"
+    ],
+    "declaredModules": [
+        "sinon"
+    ],
+    "files": [
+        "index.d.ts"
+    ],
+    "hasPackageJson": false,
+    "contentHash": "acc72ff6ff596d2f5dd1aa0dc77e7f20b5b68fa4fa70c6b5feeac9c8113feb8f"
+}

@@ -1,0 +1,79 @@
+.MainAnimationCarroussel {
+    text-align: center;
+    color: #333;
+}
+
+.MainAnimationCarroussel-slide {
+    background-size: cover;
+    background-position: center right;
+    height: 300px;
+}
+
+.PriceBlock {
+    color: #333;
+    width: 300px;
+    position: relative;
+    top: 20px;
+    right: -50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding-bottom: 15px;
+}
+
+.PriceBlock-buyLink {
+    text-decoration: underline;
+}
+
+a:-webkit-any-link {
+    text-decoration: none!important;
+}
+
+
+/* Caroussel */
+
+.slider-meyclub {
+    position: relative;
+}
+
+.MainAnimationCarroussel {
+    position: relative;
+    height: 300px;
+}
+
+.MainAnimationCarroussel-slide {
+    position: absolute;
+    width: 100%;
+}
+
+
+/* Afficher le premier result */
+
+.MainAnimationCarroussel>.MainAnimationCarroussel-slide:first-child {
+    display: block;
+}
+
+.MainAnimationCarroussel>.MainAnimationCarroussel-slide {
+    display: none;
+}
+
+
+/* Pagination style */
+
+.pagination {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.pagination label {
+    cursor: pointer;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 30px;
+    background-color: lightblue;
+    margin-right: 15px;
+    border-radius: 50%;
+}
+
+.pagination label:hover {
+    background-color: lightskyblue;
+}

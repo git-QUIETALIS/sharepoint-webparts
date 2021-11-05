@@ -1,0 +1,19 @@
+.ms-Tile-aboveNameplate {
+    display: block;
+}
+
+i img {
+    height: 100%!important;
+}
+
+.ms-FolderCover-front {
+    text-align: center;
+}
+
+.ms-FolderCover-content {
+    display: none!important;
+}
+
+.ms-FolderCover-metadata {
+    display: none;
+}
