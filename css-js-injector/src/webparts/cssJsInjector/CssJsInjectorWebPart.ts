@@ -64,6 +64,8 @@ export default class CssJsInjectorWebPart extends BaseClientSideWebPart<ICssJsIn
                 } else if (status === 404) {
                   // Image is not found
                   console.log("Image not found for : " + item)
+                  // Remove the fournisseur which image is unfound from the list to prevent the code to research for it if needed
+                  fournisseurs.splice(index, 1)
                 } else {
                   // Error
                   console.log("Error: " + status)
