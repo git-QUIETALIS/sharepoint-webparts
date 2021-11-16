@@ -1,8 +1,0 @@
-{
-  "name": "e",
-  "version": "10.10.0",
-  "description": "Test package e",
-  "dependencies": {
-    "c": "~3.1.1"
-  }
-}

@@ -15,5 +15,5 @@ i img {
 }
 
 .ms-FolderCover-metadata {
-    display: none;
+    display: none!important;
 }
