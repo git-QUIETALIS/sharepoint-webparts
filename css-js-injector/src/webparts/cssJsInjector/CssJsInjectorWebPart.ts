@@ -57,15 +57,15 @@ export default class CssJsInjectorWebPart extends BaseClientSideWebPart<ICssJsIn
               "X-RequestDigest": RequestDigest
             },
             success: function (data) {
-              console.log(data)
+              //console.log(data)
             },
             error: function (data) {
-              console.log(data)
+              //console.log(data)
             }
           });
         },
         error: function (data) {
-          console.log(data)
+          //console.log(data)
         }
       });
     }
@@ -100,8 +100,7 @@ export default class CssJsInjectorWebPart extends BaseClientSideWebPart<ICssJsIn
                   fournisseurBack.getElementsByTagName('img')[0].src = ""
                   fournisseurFront.getElementsByTagName('img')[0].src = "https://quietalis365.sharepoint.com/sites/intranet/logo_fournisseurs/" + item + ".png"
                 } else if (status === 404) {
-                  // Image is not found
-                  console.log("Image not found for : " + item)
+                  // Image is not found, so we create a default one and copy it to the webpart's icon document library
                   SPOCopyTo(item)
 
                   //Set the newly created image
@@ -109,7 +108,7 @@ export default class CssJsInjectorWebPart extends BaseClientSideWebPart<ICssJsIn
                   fournisseurFront.getElementsByTagName('img')[0].src = "https://quietalis365.sharepoint.com/sites/intranet/logo_fournisseurs/" + item + ".png"
                 } else {
                   // Error
-                  console.log("Error: " + status)
+                  //console.log("Error: " + status)
                 }
               })
             }
