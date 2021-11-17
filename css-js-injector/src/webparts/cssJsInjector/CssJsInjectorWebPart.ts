@@ -7,6 +7,7 @@ import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base'
 import { escape } from '@microsoft/sp-lodash-subset'
 import * as strings from 'CssJsInjectorWebPartStrings'
 import $ from "jquery"
+import { sp, SPRequestExecutorClient } from "@pnp/sp-addinhelpers";
 
 require('./styles.css')
 
@@ -17,6 +18,8 @@ export interface ICssJsInjectorWebPartProps {
 export default class CssJsInjectorWebPart extends BaseClientSideWebPart<ICssJsInjectorWebPartProps> {
 
   public render(): void {
+    let fournisseurs = ["ACFRI", "ACI", "ACO", "ADVENTYS", "AEIB", "ALVENE", "AMATIS", "AMBASSADE", "ANGELO PO", "ANIMO", "ARCO", "ATLANTIQUE PESAGE", "B3C SOEHNLE", "BACCHUS", "BOURDETTE", "BARON", "BARRIERE", "BARTSCHER", "BATINOX", "BC INOX", "BERKEL", "BERTO'S", "BEZZERA", "BILLARD CLINDOUX", "BIRO", "BLANCO", "BODSON", "BONNET", "BONNET FURNOTEL", "BOREOLE", "BOURGEAT", "BOURGEOIS", "BRAVILOR", "BRC", "BREMA", "BRITA", "BURLODGE TEMP RITE", "BWT", "CAFES SOUBIRA", "CAPIC", "CAPITANI", "CAPLAIN", "CARAY", "CAREL", "CARPIGIANI", "CASTEL MAC", "CAT SERV", "CATEQUIP", "CB", "CHARVET", "CIB (BONNET - THIRODE)", "CIMBALI", "CODIGEL", "COLGED", "COMBISTEEL", "COMENDA", "COMETTO", "CONTINENTALE CHIMITEC", "CONVOTHERM", "COSMETAL", "CTA", "DADAUX", "DAGARD", "DANFOSS", "DANUBE", "DELABIE", "DELCOUPE", "DESCO", "DESMON", "DIAMOND", "DIHR", "DITO SAMA", "DIXELL", "DUBIX", "DUCHENE", "DYNAMIC", "E+F", "ECP GROUP", "EDAFIM", "ELECREM", "ELECTROCALORIQUE", "ELECTROLUX", "ELFRAMO", "ELIWELL", "EMB SAGAA", "EMERSON", "ENODIS", "EPGC", "ERDEMIL", "EUROFOURS", "EUROFRED", "EVCO", "EVERPURE", "FAGOR", "FIA", "FOINOX", "FONTAINE REFRIGEREE ROLLER GRILL", "FORCAR FIMAR", "FOSTER", "FOUR HOUNO", "FRANSTAL", "FRI JADO", "FRIFRI", "FRIGINOX", "FRIMA", "FRINOX", "FURNOTEL", "GAMKO", "GECAM", "GFF", "GIGA", "GIRBAU", "GRANDIMPIANTI", "GRANULDISK", "GUYON CUISSON (ENODIS)", "HABASIT", "HENKELMAN", "HENNY PENNY", "HITACHI", "HOBART", "HOONVED", "HOSHIZAKI", "IARP", "IGF", "IGLU", "ILSA", "IMESA", "INDUSTRADE", "INFRICO", "ISA", "ISECO", "ISOTECH", "ITV", "JEMI", "JEROS", "JOHNSON", "JUDO", "JUNO", "JV LA FRANCAISE", "KENWOOD", "KIDE EPTA", "KRAMPOUZ", "KROMO", "KRONEN", "KUPPERSBUSCH", "L2G", "LAE", "LAMBER", "LAVEZZINI", "LINEA", "LMC EUROCOLD", "MAFDEL", "MARECHAL", "MARENO", "MATFER", "MBM", "MECNOSUD", "MEIKO", "MENAGER", "MERCATUS", "METOS", "METTLER TOLEDO", "MIELE", "MIRROR", "MISA", "MISTRAL", "MKN", "MODULINE", "MONDIAL GROUPE", "MULTIVAC", "MUSSANA", "NASAT", "NORTECH", "NOSEM", "NUMATIC", "NYBORG", "OCF VITRINE", "ODIC", "ODIS", "OLIS", "OMAS", "ONNERA GROUP ECOLINE", "ORA", "ORVED", "PAVAILLER", "PERMO ADOUCISSEUR", "PITCO", "POLARIS", "PRIMUS", "PROFESSIONNAL SPARES", "PROFROID", "PSV", "RATIONAL CHARIOT", "RHEAVENDORS", "RENEKA", "RICA", "RICAMBI", "ROBOT COUPE", "ROLLER GRILL", "RONDO", "ROSINOX", "ROUND UP", "SAGOP", "SALAISON PIVETEAU", "SALVA", "SALVIS", "SAMMIC", "SANTOS", "SAROMICA", "SASA", "SCAL", "SCOTSMAN (SCODIF)", "SEDA", "SEE", "SFE", "SIFEC", "SILANOS", "SILKO", "SIMONELLI", "SIRMAN", "SMEG", "SOCAMEL", "SOFINOR INOTECH", "SOFRACA", "SOPACOM", "SOWEBO", "STEPHAN", "TECHNITALIA", "TECHNITRANS", "TECNODOM", "TECNOLOGIC", "TECNOEKA", "TEFCOLD", "TELLIER", "THIRODE", "TIFFON", "TOTALINE", "TOURNUS", "TRANCHEUR", "TRUE", "TURBOCHEF", "UNOX", "VALENTINE", "VALIDEX", "VALKO", "VAUCONSANT", "VERDER", "VIESSMANN", "VIGITEMP", "VITAMIX", "VITO", "VMI", "WALO", "WARING", "WASCATOR", "WHIRLPOOL", "WIESSMANN", "WILLIAMS", "WINSTON", "WINTERHALTER", "WOLK", "WOODLEY", "ZANOLLI", "ZANOTTI", "ZANUSSI", "ZUMEX"]
+    var hostweburl = "https://quietalis365.sharepoint.com"
 
     function UrlExists(url, cb) {
       $.ajax({
@@ -30,7 +33,42 @@ export default class CssJsInjectorWebPart extends BaseClientSideWebPart<ICssJsIn
       })
     }
 
-    let fournisseurs = ["ACFRI", "ACI", "ACO", "ADVENTYS", "AEIB", "ALVENE", "AMATIS", "AMBASSADE", "ANGELO PO", "ANIMO", "ARCO", "ATLANTIQUE PESAGE", "B3C SOEHNLE", "BACCHUS", "BOURDETTE", "BARON", "BARRIERE", "BARTSCHER", "BATINOX", "BC INOX", "BERKEL", "BERTO'S", "BEZZERA", "BILLARD CLINDOUX", "BIRO", "BLANCO", "BODSON", "BONNET", "BONNET FURNOTEL", "BOREOLE", "BOURGEAT", "BOURGEOIS", "BRAVILOR", "BRC", "BREMA", "BRITA", "BURLODGE TEMP RITE", "BWT", "CAFES SOUBIRA", "CAPIC", "CAPITANI", "CAPLAIN", "CARAY", "CAREL", "CARPIGIANI", "CASTEL MAC", "CAT SERV", "CATEQUIP", "CB", "CHARVET", "CIB (BONNET - THIRODE)", "CIMBALI", "CODIGEL", "COLGED", "COMBISTEEL", "COMENDA", "COMETTO", "CONTINENTALE CHIMITEC", "CONVOTHERM", "COSMETAL", "CTA", "DADAUX", "DAGARD", "DANFOSS", "DANUBE", "DELABIE", "DELCOUPE", "DESCO", "DESMON", "DIAMOND", "DIHR", "DITO SAMA", "DIXELL", "DUBIX", "DUCHENE", "DYNAMIC", "E+F", "ECP GROUP", "EDAFIM", "ELECREM", "ELECTROCALORIQUE", "ELECTROLUX", "ELFRAMO", "ELIWELL", "EMB SAGAA", "EMERSON", "ENODIS", "EPGC", "ERDEMIL", "EUROFOURS", "EUROFRED", "EVCO", "EVERPURE", "FAGOR", "FIA", "FOINOX", "FONTAINE REFRIGEREE ROLLER GRILL", "FORCAR FIMAR", "FOSTER", "FOUR HOUNO", "FRANSTAL", "FRI JADO", "FRIFRI", "FRIGINOX", "FRIMA", "FRINOX", "FURNOTEL", "GAMKO", "GECAM", "GFF", "GIGA", "GIRBAU", "GRANDIMPIANTI", "GRANULDISK", "GUYON CUISSON (ENODIS)", "HABASIT", "HENKELMAN", "HENNY PENNY", "HITACHI", "HOBART", "HOONVED", "HOSHIZAKI", "IARP", "IGF", "IGLU", "ILSA", "IMESA", "INDUSTRADE", "INFRICO", "ISA", "ISECO", "ISOTECH", "ITV", "JEMI", "JEROS", "JOHNSON", "JUDO", "JUNO", "JV LA FRANCAISE", "KENWOOD", "KIDE EPTA", "KRAMPOUZ", "KROMO", "KRONEN", "KUPPERSBUSCH", "L2G", "LAE", "LAMBER", "LAVEZZINI", "LINEA", "LMC EUROCOLD", "MAFDEL", "MARECHAL", "MARENO", "MATFER", "MBM", "MECNOSUD", "MEIKO", "MENAGER", "MERCATUS", "METOS", "METTLER TOLEDO", "MIELE", "MIRROR", "MISA", "MISTRAL", "MKN", "MODULINE", "MONDIAL GROUPE", "MULTIVAC", "MUSSANA", "NASAT", "NORTECH", "NOSEM", "NUMATIC", "NYBORG", "OCF VITRINE", "ODIC", "ODIS", "OLIS", "OMAS", "ONNERA GROUP ECOLINE", "ORA", "ORVED", "PAVAILLER", "PERMO ADOUCISSEUR", "PITCO", "POLARIS", "PRIMUS", "PROFESSIONNAL SPARES", "PROFROID", "PSV", "RATIONAL CHARIOT", "RHEAVENDORS", "RENEKA", "RICA", "RICAMBI", "ROBOT COUPE", "ROLLER GRILL", "RONDO", "ROSINOX", "ROUND UP", "SAGOP", "SALAISON PIVETEAU", "SALVA", "SALVIS", "SAMMIC", "SANTOS", "SAROMICA", "SASA", "SCAL", "SCOTSMAN (SCODIF)", "SEDA", "SEE", "SFE", "SIFEC", "SILANOS", "SILKO", "SIMONELLI", "SIRMAN", "SMEG", "SOCAMEL", "SOFINOR INOTECH", "SOFRACA", "SOPACOM", "SOWEBO", "STEPHAN", "TECHNITALIA", "TECHNITRANS", "TECNODOM", "TECNOLOGIC", "TECNOEKA", "TEFCOLD", "TELLIER", "THIRODE", "TIFFON", "TOTALINE", "TOURNUS", "TRANCHEUR", "TRUE", "TURBOCHEF", "UNOX", "VALENTINE", "VALIDEX", "VALKO", "VAUCONSANT", "VERDER", "VIESSMANN", "VIGITEMP", "VITAMIX", "VITO", "VMI", "WALO", "WARING", "WASCATOR", "WHIRLPOOL", "WIESSMANN", "WILLIAMS", "WINSTON", "WINTERHALTER", "WOLK", "WOODLEY", "ZANOLLI", "ZANOTTI", "ZANUSSI", "ZUMEX"]
+    function SPOCopyTo(fournisseur) {
+      let ApiCoptyTo = "https://quietalis365.sharepoint.com/sites/intranet/_api/web/getfilebyserverrelativeurl('/sites/intranet/logo_fournisseurs/default.png')/copyTo('/sites/intranet/logo_fournisseurs/" + fournisseur + ".png')"
+      // Get d.GetContextWebInformation.FormDigestValue into a variable
+      let RequestDigest = "";
+      let RequestDigestUrl = "https://quietalis365.sharepoint.com/sites/intranet/_api/contextinfo";
+      $.ajax({
+        url: RequestDigestUrl,
+        type: "POST",
+        headers: {
+          "accept": "application/json;odata=verbose",
+          "content-type": "application/json;odata=verbose",
+          "X-RequestDigest": RequestDigest
+        },
+        success: function (data) {
+          RequestDigest = data.d.GetContextWebInformation.FormDigestValue;
+          $.ajax({
+            url: ApiCoptyTo,
+            type: "POST",
+            headers: {
+              "accept": "application/json;odata=verbose",
+              "content-type": "application/json;odata=verbose",
+              "X-RequestDigest": RequestDigest
+            },
+            success: function (data) {
+              console.log(data)
+            },
+            error: function (data) {
+              console.log(data)
+            }
+          });
+        },
+        error: function (data) {
+          console.log(data)
+        }
+      });
+    }
 
     // Check if new element with class "ms-List-page" is added to the DOM and if so, console log it
     $(document).on('DOMNodeInserted', function (e) {
@@ -64,8 +102,11 @@ export default class CssJsInjectorWebPart extends BaseClientSideWebPart<ICssJsIn
                 } else if (status === 404) {
                   // Image is not found
                   console.log("Image not found for : " + item)
-                  // Remove the fournisseur which image is unfound from the list to prevent the code to research for it if needed
-                  fournisseurs.splice(index, 1)
+                  SPOCopyTo(item)
+
+                  //Set the newly created image
+                  fournisseurBack.getElementsByTagName('img')[0].src = ""
+                  fournisseurFront.getElementsByTagName('img')[0].src = "https://quietalis365.sharepoint.com/sites/intranet/logo_fournisseurs/" + item + ".png"
                 } else {
                   // Error
                   console.log("Error: " + status)
