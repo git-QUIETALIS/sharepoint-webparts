@@ -25,5 +25,8 @@
     "use-named-parameter": true,
     "variable-name": false,
     "whitespace": false
+  },
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true
   }
 }

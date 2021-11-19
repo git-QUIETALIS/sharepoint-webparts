@@ -13,7 +13,7 @@ import FileUpload from './components/FileUpload';
 import { IFileUploadProps } from './components/IFileUploadProps';
 import * as loader from '@microsoft/sp-loader';
 import { PropertyFieldListPicker, PropertyFieldListPickerOrderBy } from '../../PropertyFieldListPicker';
-import { PropertyPaneDropdown } from '@microsoft/sp-webpart-base/lib/propertyPane/propertyPaneFields/propertyPaneDropdown/PropertyPaneDropdown';
+import { PropertyPaneDropdown } from '@microsoft/sp-property-pane';
 export interface IFileUploadWebPartProps {
   listName:string;
   fileTypes:string;
