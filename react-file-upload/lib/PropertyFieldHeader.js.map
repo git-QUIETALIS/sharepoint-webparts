@@ -1,1 +1,0 @@
-{"version":3,"sources":["PropertyFieldHeader.ts"],"names":[],"mappings":";;;;;AAAA,wDAAmD","file":"PropertyFieldHeader.js","sourcesContent":["export * from './common/propertyFieldHeader/index';"],"sourceRoot":"..\\src"}

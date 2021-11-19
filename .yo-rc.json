@@ -2,6 +2,8 @@
   "@microsoft/generator-sharepoint": {
     "isCreatingSolution": true,
     "environment": "spo",
-    "whichFolder": "subdir"
+    "whichFolder": "subdir",
+    "plusBeta": false,
+    "componentType": "webpart"
   }
 }
