@@ -2,6 +2,7 @@ import * as React from 'react';
 import styles from './DocumentSubmitter.module.scss';
 import { IDocumentSubmitterProps } from './IDocumentSubmitterProps';
 import { escape } from '@microsoft/sp-lodash-subset';
+import { useDropzone } from 'react-dropzone';
 
 export default class DocumentSubmitter extends React.Component<IDocumentSubmitterProps, {}> {
   public render(): React.ReactElement<IDocumentSubmitterProps> {
