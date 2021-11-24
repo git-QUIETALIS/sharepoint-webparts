@@ -17,18 +17,21 @@ export interface IAlignAppIconsWebPartProps {
 export default class AlignAppIconsWebPart extends BaseClientSideWebPart<IAlignAppIconsWebPartProps> {
 
   protected assignNewCss(): void {
-    console.log("Adding new styles");
-    // Set display flex to the icons container
-    const AllIcons = document.getElementsByClassName('ms-List-page')[0];
-    console.log(AllIcons);
-    AllIcons.classList.add('flexDisplay');
+    //Wait 1s after the page is loaded to assign the new css
+    setTimeout(() => {
+      console.log("Adding new styles");
+      // Set display flex to the icons container
+      const AllIcons = document.getElementsByClassName('ms-List-page')[0];
+      console.log(AllIcons);
+      AllIcons.classList.add('flexDisplay');
 
-    // Set flex 1 to the icons
-    const AllIconsChildren = document.getElementsByClassName('ms-List-cell');
-    for (let i = 0; i < AllIconsChildren.length; i++) {
-      AllIconsChildren[i].classList.add('flex1');
-      console.log(AllIconsChildren[i]);
-    }
+      // Set flex 1 to the icons
+      const AllIconsChildren = document.getElementsByClassName('ms-List-cell');
+      for (let i = 0; i < AllIconsChildren.length; i++) {
+        AllIconsChildren[i].classList.add('flex1');
+        console.log(AllIconsChildren[i]);
+      }
+    }, 500);
   }
 
   public render(): void {
