@@ -1,0 +1,12 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.13.0",
+    "libraryName": "react-dropzone",
+    "libraryId": "9f01d8a7-a860-4bb6-b894-58f257d58f9f",
+    "environment": "spo",
+    "packageManager": "npm",
+    "isCreatingSolution": true,
+    "plusBeta": false,
+    "isDomainIsolated": false
+  }
+}
