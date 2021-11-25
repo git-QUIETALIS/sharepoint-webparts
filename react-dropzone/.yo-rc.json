@@ -1,12 +1,13 @@
 {
   "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "environment": "spo",
     "version": "1.13.0",
     "libraryName": "react-dropzone",
-    "libraryId": "9f01d8a7-a860-4bb6-b894-58f257d58f9f",
-    "environment": "spo",
+    "libraryId": "1f068960-ce34-414e-806b-a83aef7d8a5f",
     "packageManager": "npm",
-    "isCreatingSolution": true,
-    "plusBeta": false,
-    "isDomainIsolated": false
+    "isDomainIsolated": false,
+    "componentType": "webpart"
   }
 }

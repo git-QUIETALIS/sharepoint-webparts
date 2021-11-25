@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
     "name": "react-dropzone-client-side-solution",
-    "id": "9f01d8a7-a860-4bb6-b894-58f257d58f9f",
+    "id": "1f068960-ce34-414e-806b-a83aef7d8a5f",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,

@@ -2,17 +2,17 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
   "version": "2.0",
   "bundles": {
-    "drop-documents-zone-web-part": {
+    "drop-document-zone-web-part": {
       "components": [
         {
-          "entrypoint": "./lib/webparts/dropDocumentsZone/DropDocumentsZoneWebPart.js",
-          "manifest": "./src/webparts/dropDocumentsZone/DropDocumentsZoneWebPart.manifest.json"
+          "entrypoint": "./lib/webparts/dropDocumentZone/DropDocumentZoneWebPart.js",
+          "manifest": "./src/webparts/dropDocumentZone/DropDocumentZoneWebPart.manifest.json"
         }
       ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "DropDocumentsZoneWebPartStrings": "lib/webparts/dropDocumentsZone/loc/{locale}.js"
+    "DropDocumentZoneWebPartStrings": "lib/webparts/dropDocumentZone/loc/{locale}.js"
   }
 }

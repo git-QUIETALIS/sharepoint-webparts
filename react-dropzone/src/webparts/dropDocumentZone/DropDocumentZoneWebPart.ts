@@ -7,21 +7,22 @@ import {
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
-import * as strings from 'DropDocumentsZoneWebPartStrings';
-import DropDocumentsZone from './components/DropDocumentsZone';
-import { IDropDocumentsZoneProps } from './components/IDropDocumentsZoneProps';
+import * as strings from 'DropDocumentZoneWebPartStrings';
+import DropDocumentZone from './components/DropDocumentZone';
+import { IDropDocumentZoneProps } from './components/IDropDocumentZoneProps';
 
-export interface IDropDocumentsZoneWebPartProps {
+export interface IDropDocumentZoneWebPartProps {
   description: string;
 }
 
-export default class DropDocumentsZoneWebPart extends BaseClientSideWebPart<IDropDocumentsZoneWebPartProps> {
+export default class DropDocumentZoneWebPart extends BaseClientSideWebPart<IDropDocumentZoneWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IDropDocumentsZoneProps> = React.createElement(
-      DropDocumentsZone,
+    const element: React.ReactElement<IDropDocumentZoneProps> = React.createElement(
+      DropDocumentZone,
       {
-        description: this.properties.description
+        description: this.properties.description,
+        context: this.context
       }
     );
 

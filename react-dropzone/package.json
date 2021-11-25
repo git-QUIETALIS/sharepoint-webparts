@@ -9,14 +9,20 @@
     "test": "gulp test"
   },
   "dependencies": {
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "office-ui-fabric-react": "7.174.1",
     "@microsoft/sp-core-library": "1.13.0",
+    "@microsoft/sp-lodash-subset": "1.13.0",
+    "@microsoft/sp-office-ui-fabric-core": "1.13.0",
     "@microsoft/sp-property-pane": "1.13.0",
     "@microsoft/sp-webpart-base": "1.13.0",
-    "@microsoft/sp-lodash-subset": "1.13.0",
-    "@microsoft/sp-office-ui-fabric-core": "1.13.0"
+    "@pnp/sp": "^2.11.0",
+    "@types/react-filepond": "^7.1.0",
+    "filepond": "^4.30.3",
+    "filepond-plugin-image-exif-orientation": "^1.0.11",
+    "filepond-plugin-image-preview": "^4.6.10",
+    "office-ui-fabric-react": "7.174.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-filepond": "^7.1.1"
   },
   "devDependencies": {
     "@types/react": "16.9.51",
