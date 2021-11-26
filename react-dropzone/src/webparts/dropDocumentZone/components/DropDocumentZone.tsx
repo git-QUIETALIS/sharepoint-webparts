@@ -16,6 +16,8 @@ import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orien
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
 
+import "./dropzone.min.css";
+
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 
 export default class DropDocumentZone extends React.Component<IDropDocumentZoneProps, IDropDocumentZoneState> {
@@ -25,6 +27,15 @@ export default class DropDocumentZone extends React.Component<IDropDocumentZoneP
       spfxContext: this.props.context
     });
     this.state = ({ files: [] });
+
+    // Get description inputText value
+    const description = document.getElementById('description');
+    let newDescriptionValue;
+
+    newDescriptionValue.addEventListener('input', function(event) {
+      newDescriptionValue = this.value;
+      console.log('test' + newDescriptionValue);
+    })
     registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
   }
 
@@ -32,17 +43,26 @@ export default class DropDocumentZone extends React.Component<IDropDocumentZoneP
     return (
       <div className={styles.spfxReactDropzone}>
         <FilePond
-        // @ts-ignore
+          //@ts-ignore
           files={this.state.files}
-          allowMultiple={true}
+          allowMultiple={false}
           onupdatefiles={fileItems => {
             this.setState({
               files: fileItems.map(fileItem => fileItem.file)
             });
-            console.log(this.state.files);
-          }} />
+          }}
+          labelIdle='Vous avez un document à soumettre ? Placez-le ici' />
+        <div className={styles.describeDocument}>
+          <input
+            id="description"
+            className={styles.describeInput}
+            type="text"
+            placeholder="Description du document"
+          />
+        </div>
         <br />
-        <PrimaryButton text="Upload" onClick={this._uploadFiles} />
+        <PrimaryButton text="Envoyer" onClick={this._uploadFiles} />
+
       </div>
     );
   }
@@ -52,12 +72,15 @@ export default class DropDocumentZone extends React.Component<IDropDocumentZoneP
       // you can adjust this number to control what size files are uploaded in chunks
       if (file.size <= 10485760) {
         // small upload
-        const newfile = sp.web.getFolderByServerRelativeUrl("/sites/intranet/logo_fournisseurs/").files.add(file.name, file, true);
+        const newfile = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.add(file.name, file, true);
       } else {
         // large upload
-        const newfile = sp.web.getFolderByServerRelativeUrl("/sites/intranet/logo_fournisseurs/").files.addChunked(file.name, file, data => {
+        const newfile = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.addChunked(file.name, file, data => {
         }, true);
       }
+      // Get input with id "description" value
+      
+      const newDescription = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.add(file.name + ".txt", descriptionInput, true);
     });
     this.setState({ files: [] })
   }
