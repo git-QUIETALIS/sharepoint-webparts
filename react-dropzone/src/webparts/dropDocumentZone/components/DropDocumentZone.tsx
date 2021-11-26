@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useState } from 'react';
 import styles from './DropDocumentZone.module.scss';
 import { IDropDocumentZoneProps } from './IDropDocumentZoneProps';
 import { IDropDocumentZoneState } from './IDropDocumentZoneState';
@@ -53,10 +52,10 @@ export default class DropDocumentZone extends React.Component<IDropDocumentZoneP
       // you can adjust this number to control what size files are uploaded in chunks
       if (file.size <= 10485760) {
         // small upload
-        const newfile = sp.web.getFolderByServerRelativeUrl("/sites/Intranet/Documents/").files.add(file.name, file, true);
+        const newfile = sp.web.getFolderByServerRelativeUrl("/sites/intranet/logo_fournisseurs/").files.add(file.name, file, true);
       } else {
         // large upload
-        const newfile = sp.web.getFolderByServerRelativeUrl("/sites/Intranet/Documents/").files.addChunked(file.name, file, data => {
+        const newfile = sp.web.getFolderByServerRelativeUrl("/sites/intranet/logo_fournisseurs/").files.addChunked(file.name, file, data => {
         }, true);
       }
     });
