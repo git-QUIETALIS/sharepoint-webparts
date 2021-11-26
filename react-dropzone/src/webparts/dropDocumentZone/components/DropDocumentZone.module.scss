@@ -6,4 +6,23 @@
 
 .spfxReactDropzone {
     padding: 20px;
+    text-align: center;
+}
+
+.describeDocument {
+    display: block;
+    position: relative;
+    background-color: #f1f0ef;
+    height: 75px;
+    bottom: 25px;
+    border-radius: 5px;
+}
+
+.describeInput {
+    width: 80%;
+    height: 35px;
+    border: 2px solid lightgray;
+    border-radius: 5px;
+    position: relative;
+    top: 15px;
 }
