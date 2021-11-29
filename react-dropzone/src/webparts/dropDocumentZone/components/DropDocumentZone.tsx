@@ -1,15 +1,17 @@
 import * as React from 'react';
+import { useState, createContext, useContext } from 'react';
 import styles from './DropDocumentZone.module.scss';
 import { IDropDocumentZoneProps } from './IDropDocumentZoneProps';
 import { IDropDocumentZoneState } from './IDropDocumentZoneState';
 import { PrimaryButton } from '@microsoft/office-ui-fabric-react-bundle';
-import { escape } from '@microsoft/sp-lodash-subset';
 
+// Sharepoint webpart library
 import { sp } from "@pnp/sp";
 import "@pnp/sp/webs";
 import "@pnp/sp/files";
 import "@pnp/sp/folders";
 
+// FilePond library
 import { FilePond, registerPlugin } from 'react-filepond';
 import 'filepond/dist/filepond.min.css';
 import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
@@ -18,24 +20,16 @@ import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
 
 import "./dropzone.min.css";
 
-registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
-
 export default class DropDocumentZone extends React.Component<IDropDocumentZoneProps, IDropDocumentZoneState> {
   constructor(props: IDropDocumentZoneProps, state: IDropDocumentZoneState) {
     super(props);
     sp.setup({
       spfxContext: this.props.context
     });
-    this.state = ({ files: [] });
-
-    // Get description inputText value
-    const description = document.getElementById('description');
-    let newDescriptionValue;
-
-    newDescriptionValue.addEventListener('input', function(event) {
-      newDescriptionValue = this.value;
-      console.log('test' + newDescriptionValue);
-    })
+    this.state = {
+      files: [],
+      description: ''
+    };
     registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
   }
 
@@ -53,13 +47,8 @@ export default class DropDocumentZone extends React.Component<IDropDocumentZoneP
           }}
           labelIdle='Vous avez un document à soumettre ? Placez-le ici' />
         <div className={styles.describeDocument}>
-          <input
-            id="description"
-            className={styles.describeInput}
-            type="text"
-            placeholder="Description du document"
-          />
-        </div>
+          <input className={styles.describeInput} value={this.state.description} onChange={e => this.setState({ description: e.target.value })} type="text" placeholder="Description du document" />
+        </div >
         <br />
         <PrimaryButton text="Envoyer" onClick={this._uploadFiles} />
 
@@ -78,10 +67,9 @@ export default class DropDocumentZone extends React.Component<IDropDocumentZoneP
         const newfile = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.addChunked(file.name, file, data => {
         }, true);
       }
-      // Get input with id "description" value
-      
-      const newDescription = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.add(file.name + ".txt", descriptionInput, true);
     });
-    this.setState({ files: [] })
+    const file = this.state.files[0];
+    const addDescription = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.add(file.name + ".txt", this.state.description, true);
+    this.setState({ files: [], description: '' });
   }
 }
