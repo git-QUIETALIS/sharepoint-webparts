@@ -6,6 +6,25 @@ Cette DropZone permet de déposer des fichiers afin qu'ils soient envoyés dans 
 
 ![](https://i.imgur.com/xyhtNcN.png)
 
+## Minimal Path to Awesome
+
+- Clone this repository
+- Ensure that you are at the solution folder
+- in the command-line run:
+  - **npm install**
+  - **gulp serve**
+
+> To build the solution:
+- in the command-line run:
+  - **gulp bundle --ship**
+  - **gulp package-solution --ship**
+  - **Find your .spfx solution in the sharepoint folder**
+
+> Si vous voulez changer le répertoire de destination, changez le dans le fichier DropDocumentZone.tsx aux lignes :
+- 63 : **const newfile = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.add(file.name, file, true);**
+- 66 : **const newfile = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.addChunked(file.name, file, data => {}, true);**
+- 74 : **const addDescription = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.add(file.name + ".txt", this.state.description, true);**
+
 ## Used SharePoint Framework Version
 
 ![version](https://img.shields.io/badge/version-1.13-green.svg)
@@ -38,25 +57,6 @@ Version|Date|Comments
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
 
 ---
-
-## Minimal Path to Awesome
-
-- Clone this repository
-- Ensure that you are at the solution folder
-- in the command-line run:
-  - **npm install**
-  - **gulp serve**
-
-> To build the solution:
-- in the command-line run:
-  - **gulp bundle --ship**
-  - **gulp package-solution --ship**
-  - **Find your .spfx solution in the sharepoint folder**
-
-> Si vous voulez changer le répertoire de destination, changez le dans le fichier DropDocumentZone.tsx aux lignes :
-- 63 : **const newfile = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.add(file.name, file, true);**
-- 66 : **const newfile = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.addChunked(file.name, file, data => {}, true);**
-- 74 : **const addDescription = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.add(file.name + ".txt", this.state.description, true);**
 
 ## References
 
