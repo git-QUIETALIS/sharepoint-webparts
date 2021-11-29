@@ -52,6 +52,12 @@ Version|Date|Comments
   - **gulp bundle --ship**
   - **gulp package-solution --ship**
   - **Find your .spfx solution in the sharepoint folder**
+
+> Si vous voulez changer le répertoire de destination, changez le dans le fichier DropDocumentZone.tsx aux lignes :
+- 63 : **const newfile = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.add(file.name, file, true);**
+- 66 : **const newfile = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.addChunked(file.name, file, data => {}, true);**
+- 74 : **const addDescription = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.add(file.name + ".txt", this.state.description, true);**
+
 ## References
 
 - [Getting started with SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)
