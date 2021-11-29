@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useState, createContext, useContext } from 'react';
 import styles from './DropDocumentZone.module.scss';
 import { IDropDocumentZoneProps } from './IDropDocumentZoneProps';
 import { IDropDocumentZoneState } from './IDropDocumentZoneState';
@@ -57,8 +56,8 @@ export default class DropDocumentZone extends React.Component<IDropDocumentZoneP
   }
 
   private _uploadFiles = async () => {
+    // Create folder for the file to be uploaded
     this.state.files.forEach(function (file, i) {
-      // you can adjust this number to control what size files are uploaded in chunks
       if (file.size <= 10485760) {
         // small upload
         const newfile = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.add(file.name, file, true);
@@ -68,7 +67,10 @@ export default class DropDocumentZone extends React.Component<IDropDocumentZoneP
         }, true);
       }
     });
+
+    // Add the .txt file to the folder
     const file = this.state.files[0];
+    let descriptionName = file.name.split('.');
     const addDescription = sp.web.getFolderByServerRelativeUrl("/sites/intranet/Documents%20%20trier%20Admin%20only/").files.add(file.name + ".txt", this.state.description, true);
     this.setState({ files: [], description: '' });
   }
