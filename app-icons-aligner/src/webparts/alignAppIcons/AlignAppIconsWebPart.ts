@@ -22,14 +22,17 @@ export default class AlignAppIconsWebPart extends BaseClientSideWebPart<IAlignAp
       console.log("Adding new styles");
       // Set display flex to the icons container
       const AllIcons = document.getElementsByClassName('ms-List-page')[0];
-      console.log(AllIcons);
+      const RedRightIcons = document.querySelectorAll("[data-automation-id='button-card']");
       AllIcons.classList.add('flexDisplay');
 
       // Set flex 1 to the icons
       const AllIconsChildren = document.getElementsByClassName('ms-List-cell');
       for (let i = 0; i < AllIconsChildren.length; i++) {
         AllIconsChildren[i].classList.add('flex1');
-        console.log(AllIconsChildren[i]);
+      }
+      // Iterate through RedRightIcons and set height to 103px
+      for (let i = 0; i < RedRightIcons.length; i++) {
+        RedRightIcons[i].classList.add('customHeight');
       }
     }, 500);
   }
