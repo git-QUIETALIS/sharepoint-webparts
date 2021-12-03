@@ -21,11 +21,11 @@ export default class AlignAppIconsWebPart extends BaseClientSideWebPart<IAlignAp
     setTimeout(() => {
       console.log("Adding new styles");
       // Set display flex to the icons container
-      const AllIcons = document.getElementsByClassName('ms-List-page')[0];
-      const RedRightIcons = document.querySelectorAll("[data-automation-id='button-card']");
+      const AllIcons = document.querySelector('[aria-label="Liste des liens rapides. La liste comporte6des éléments.Utilisez les flèches gauche et droite pour parcourir les liens."]')
       AllIcons.classList.add('flexDisplay');
 
       // Set flex 1 to the icons
+      const RedRightIcons = document.querySelectorAll("[data-automation-id='button-card']");
       const AllIconsChildren = document.getElementsByClassName('ms-List-cell');
       for (let i = 0; i < AllIconsChildren.length; i++) {
         AllIconsChildren[i].classList.add('flex1');
