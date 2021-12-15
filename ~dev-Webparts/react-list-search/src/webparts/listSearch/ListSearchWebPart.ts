@@ -33,6 +33,9 @@ import { SharePointFieldTypes, SharePointType } from './model/ISharePointFieldTy
 import { IModalType } from './model/IModalType';
 import { find, has } from '@microsoft/sp-lodash-subset';
 
+// Import styles
+import './styles.css';
+
 
 
 export interface IListSearchWebPartProps {
@@ -112,6 +115,7 @@ export default class ListSearchWebPart extends BaseClientSideWebPart<IListSearch
     return super.onInit();
   }
 
+  //@ts-ignore
   protected get propertiesMetadata(): IWebPartPropertiesMetadata {
     return {
       // Specify the web part properties data type to allow the address
@@ -320,10 +324,11 @@ export default class ListSearchWebPart extends BaseClientSideWebPart<IListSearch
       this.properties.listsCollectionData && this.properties.listsCollectionData.length > 0 && this.properties.detailListFieldsCollectionData && this.properties.detailListFieldsCollectionData.length > 0;
   }
 
+  //@ts-ignore
   protected get dataVersion(): Version {
     return Version.parse(this.context.manifest.version);
   }
-
+  //@ts-ignore
   protected get disableReactivePropertyChanges(): boolean {
     return true;
   }

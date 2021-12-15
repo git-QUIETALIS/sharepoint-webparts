@@ -44,6 +44,7 @@ export default class ListSearchConsumerWebPart extends BaseClientSideWebPart<ILi
     ReactDom.unmountComponentAtNode(this.domElement);
   }
 
+  //@ts-ignore
   protected get propertiesMetadata(): IWebPartPropertiesMetadata {
     return {
       // Specify the web part properties data type to allow the address
