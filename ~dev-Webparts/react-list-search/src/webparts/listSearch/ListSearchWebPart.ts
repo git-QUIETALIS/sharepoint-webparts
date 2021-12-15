@@ -313,6 +313,7 @@ export default class ListSearchWebPart extends BaseClientSideWebPart<IListSearch
 
 
     ReactDom.render(renderElement, this.domElement);
+
   }
 
   private isEmpty(str: string) {

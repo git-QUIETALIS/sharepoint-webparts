@@ -26,6 +26,7 @@
     "@pnp/sp": "2.0.8",
     "@pnp/spfx-controls-react": "2.4.0",
     "@pnp/spfx-property-controls": "2.5.0",
+    "jquery": "^3.6.0",
     "office-ui-fabric-react": "7.155.3",
     "react": "16.8.5",
     "react-dom": "16.8.5",

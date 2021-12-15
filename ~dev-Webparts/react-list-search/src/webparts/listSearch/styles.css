@@ -9,3 +9,7 @@
     align-items: center!important;
     text-align: center!important;
 }
+
+.ms-DetailsRow-cell {
+    width: 100%!important;
+}
