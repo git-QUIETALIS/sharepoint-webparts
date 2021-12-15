@@ -1,0 +1,24 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "a871138d-9863-4b24-9cc4-d7d5eed52277",
+  "alias": "ListSearchWebPart",
+  "componentType": "WebPart",
+
+  "version": "*",
+  "manifestVersion": 2,
+  "supportsThemeVariants": true,
+
+  "requiresCustomScript": false,
+  "supportedHosts": ["SharePointWebPart", "SharePointFullPage"],
+
+  "preconfiguredEntries": [{
+    "groupId": "734a99ea-64e2-4a38-83fc-abd88a008650",
+    "group": { "default": "Other" },
+    "title": { "default": "list-search" },
+    "description": { "default": "SharePoitn list search custom webpart" },
+    "officeFabricIconFontName": "PageListFilter",
+    "properties": {
+      "description": "list-search"
+    }
+  }]
+}
