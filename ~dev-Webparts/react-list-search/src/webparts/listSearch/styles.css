@@ -13,3 +13,8 @@
 .ms-DetailsRow-cell {
     width: 100%!important;
 }
+
+.ms-Image-image {
+    width: 100px!important;
+    height: auto!important;
+}
