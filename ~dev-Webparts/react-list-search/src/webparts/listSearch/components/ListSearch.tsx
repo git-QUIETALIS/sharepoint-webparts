@@ -138,19 +138,22 @@ export default class IListdSearchWebPart extends React.Component<IListSearchProp
     }
   }
 
-  public changeFolderIcons() {
-    // Liste des fournisseurs sans duplication
-    let fournisseurs = ["ACFRI", "ACO", "ACTIF INDUSTRIES", "AFI COLLIN LUCY", "ALVENE", "AMBASSADE DE BOURGOGNE", "ANGELO PO", "ANIMO", "ARCOMETAL", "ATOSA", "B3C PESAGE", "BARON", "BARTSCHER", "BLANCO PROFESSIONAL", "BLUCHER", "BOREOLE", "BRC", "BRITA", "BURLODGE", "BWT - PERMO", "CAPIC", "CHARVET", "CODIGEL", "COMENDA", "CTA", "DADAUX", "DAGARD", "DANUBE", "DIAMOND", "DIHR", "DYNAMIC", "EBERHARDT", "EDAFIM", "EDENOX", "ELECTROLUX", "ENODIS", "EPGC", "FAGOR", "FERMOD", "FOSTER", "FRIGINOX", "FRITEC", "FURNOTEL", "GAZECHIM", "GFF", "GRANULDISK", "GROUPE BC INOX", "HENDI", "HOSHIZAKI", "HOUNO", "IMPERIAL INTERNATIONAL", "ISOTECH", "L2G", "LE FROID PECOMARK", "LINK INOX", "MATFER BOURGEAT", "MEIKO", "MIELE", "MKN", "NISBETS FRANCE", "NOSEM", "ODIC", "OHAUS EUROPE", "PROFESSIONAL SPARES", "RATIONAL", "ROBOT COUPE", "ROLESCO", "ROSINOX", "SAFTAIR", "SAGI", "SAMMIC", "SCODIF", "SEDA", "SMEG", "SOFINOR", "SOFRACA", "SOPACOM", "TELEWIG", "TELLIER", "TOURNUS", "UNOX", "VALIDEX", "VAUCONSANT", "VMI", "WINTERHALTER", "ACFRI", "ACI", "ACO", "ADVENTYS", "AEIB", "ALVENE", "AMATIS", "AMBASSADE", "ANGELO PO", "ANIMO", "ARCO", "ATLANTIQUE PESAGE", "B3C SOEHNLE", "BACCHUS", "BOURDETTE", "BARON", "BARRIERE", "BARTSCHER", "BATINOX", "BC INOX", "BERKEL", "BERTO'S", "BEZZERA", "BILLARD CLINDOUX", "BIRO", "BLANCO", "BODSON", "BONNET", "BONNET FURNOTEL", "BOREOLE", "BOURGEAT", "BOURGEOIS", "BRAVILOR", "BRC", "BREMA", "BRITA", "BURLODGE TEMP RITE", "BWT", "CAFES SOUBIRA", "CAPIC", "CAPITANI", "CAPLAIN", "CARAY", "CAREL", "CARPIGIANI", "CASTEL MAC", "CAT SERV", "CATEQUIP", "CB", "CHARVET", "CIB (BONNET - THIRODE)", "CIMBALI", "CODIGEL", "COLGED", "COMBISTEEL", "COMENDA", "COMETTO", "CONTINENTALE CHIMITEC", "CONVOTHERM", "COSMETAL", "CTA", "DADAUX", "DAGARD", "DANFOSS", "DANUBE", "DELABIE", "DELCOUPE", "DESCO", "DESMON", "DIAMOND", "DIHR", "DITO SAMA", "DIXELL", "DUBIX", "DUCHENE", "DYNAMIC", "E+F", "ECP GROUP", "EDAFIM", "ELECREM", "ELECTROCALORIQUE", "ELECTROLUX", "ELFRAMO", "ELIWELL", "EMB SAGAA", "EMERSON", "ENODIS", "EPGC", "ERDEMIL", "EUROFOURS", "EUROFRED", "EVCO", "EVERPURE", "FAGOR", "FIA", "FOINOX", "FONTAINE REFRIGEREE ROLLER GRILL", "FORCAR FIMAR", "FOSTER", "FOUR HOUNO", "FRANSTAL", "FRI JADO", "FRIFRI", "FRIGINOX", "FRIMA", "FRINOX", "FURNOTEL", "GAMKO", "GECAM", "GFF", "GIGA", "GIRBAU", "GRANDIMPIANTI", "GRANULDISK", "GUYON CUISSON (ENODIS)", "HABASIT", "HENKELMAN", "HENNY PENNY", "HITACHI", "HOBART", "HOONVED", "HOSHIZAKI", "IARP", "IGF", "IGLU", "ILSA", "IMESA", "INDUSTRADE", "INFRICO", "ISA", "ISECO", "ISOTECH", "ITV", "JEMI", "JEROS", "JOHNSON", "JUDO", "JUNO", "JV LA FRANCAISE", "KENWOOD", "KIDE EPTA", "KRAMPOUZ", "KROMO", "KRONEN", "KUPPERSBUSCH", "L2G", "LAE", "LAMBER", "LAVEZZINI", "LINEA", "LMC EUROCOLD", "MAFDEL", "MARECHAL", "MARENO", "MATFER", "MBM", "MECNOSUD", "MEIKO", "MENAGER", "MERCATUS", "METOS", "METTLER TOLEDO", "MIELE", "MIRROR", "MISA", "MISTRAL", "MKN", "MODULINE", "MONDIAL GROUPE", "MULTIVAC", "MUSSANA", "NASAT", "NORTECH", "NOSEM", "NUMATIC", "NYBORG", "OCF VITRINE", "ODIC", "ODIS", "OLIS", "OMAS", "ONNERA GROUP ECOLINE", "ORA", "ORVED", "PAVAILLER", "PERMO ADOUCISSEUR", "PITCO", "POLARIS", "PRIMUS", "PROFESSIONNAL SPARES", "PROFROID", "PSV", "RATIONAL CHARIOT", "RHEAVENDORS", "RENEKA", "RICA", "RICAMBI", "ROBOT COUPE", "ROLLER GRILL", "RONDO", "ROSINOX", "ROUND UP", "SAGOP", "SALAISON PIVETEAU", "SALVA", "SALVIS", "SAMMIC", "SANTOS", "SAROMICA", "SASA", "SCAL", "SCOTSMAN (SCODIF)", "SEDA", "SEE", "SFE", "SIFEC", "SILANOS", "SILKO", "SIMONELLI", "SIRMAN", "SMEG", "SOCAMEL", "SOFINOR INOTECH", "SOFRACA", "SOPACOM", "SOWEBO", "STEPHAN", "TECHNITALIA", "TECHNITRANS", "TECNODOM", "TECNOLOGIC", "TECNOEKA", "TEFCOLD", "TELLIER", "THIRODE", "TIFFON", "TOTALINE", "TOURNUS", "TRANCHEUR", "TRUE", "TURBOCHEF", "UNOX", "VALENTINE", "VALIDEX", "VALKO", "VAUCONSANT", "VERDER", "VIESSMANN", "VIGITEMP", "VITAMIX", "VITO", "VMI", "WALO", "WARING", "WASCATOR", "WHIRLPOOL", "WIESSMANN", "WILLIAMS", "WINSTON", "WINTERHALTER", "WOLK", "WOODLEY", "ZANOLLI", "ZANOTTI", "ZANUSSI", "ZUMEX"];
-    const removeDuplicates = (arr: any[]) => {
-      let unique_array = [];
-      for (let i = 0; i < arr.length; i++) {
-        if (unique_array.indexOf(arr[i]) == -1) {
-          unique_array.push(arr[i]);
-        }
+  // Function that takes a list as parameter and returns the same list without duplicates
+  private removeDuplicates = (arr: any[]) => {
+    let unique_array = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (unique_array.indexOf(arr[i]) == -1) {
+        unique_array.push(arr[i]);
       }
-      return unique_array;
     }
-    fournisseurs = removeDuplicates(fournisseurs);
+    return unique_array;
+  }
+
+  // Function that changes the icons of the folders
+  public changeFolderIcons() {
+    let fournisseurs = ["ACFRI", "ACO", "ACTIF INDUSTRIES", "AFI COLLIN LUCY", "ALVENE", "AMBASSADE DE BOURGOGNE", "ANGELO PO", "ANIMO", "ARCOMETAL", "ATOSA", "B3C PESAGE", "BARON", "BARTSCHER", "BLANCO PROFESSIONAL", "BLUCHER", "BOREOLE", "BRC", "BRITA", "BURLODGE", "BWT - PERMO", "CAPIC", "CHARVET", "CODIGEL", "COMENDA", "CTA", "DADAUX", "DAGARD", "DANUBE", "DIAMOND", "DIHR", "DYNAMIC", "EBERHARDT", "EDAFIM", "EDENOX", "ELECTROLUX", "ENODIS", "EPGC", "FAGOR", "FERMOD", "FOSTER", "FRIGINOX", "FRITEC", "FURNOTEL", "GAZECHIM", "GFF", "GRANULDISK", "GROUPE BC INOX", "HENDI", "HOSHIZAKI", "HOUNO", "IMPERIAL INTERNATIONAL", "ISOTECH", "L2G", "LE FROID PECOMARK", "LINK INOX", "MATFER BOURGEAT", "MEIKO", "MIELE", "MKN", "NISBETS FRANCE", "NOSEM", "ODIC", "OHAUS EUROPE", "PROFESSIONAL SPARES", "RATIONAL", "ROBOT COUPE", "ROLESCO", "ROSINOX", "SAFTAIR", "SAGI", "SAMMIC", "SCODIF", "SEDA", "SMEG", "SOFINOR", "SOFRACA", "SOPACOM", "TELEWIG", "TELLIER", "TOURNUS", "UNOX", "VALIDEX", "VAUCONSANT", "VMI", "WINTERHALTER", "ACFRI", "ACI", "ACO", "ADVENTYS", "AEIB", "ALVENE", "AMATIS", "AMBASSADE", "ANGELO PO", "ANIMO", "ARCO", "ATLANTIQUE PESAGE", "B3C SOEHNLE", "BACCHUS", "BOURDETTE", "BARON", "BARRIERE", "BARTSCHER", "BATINOX", "BC INOX", "BERKEL", "BERTO'S", "BEZZERA", "BILLARD CLINDOUX", "BIRO", "BLANCO", "BODSON", "BONNET", "BONNET FURNOTEL", "BOREOLE", "BOURGEAT", "BOURGEOIS", "BRAVILOR", "BRC", "BREMA", "BRITA", "BURLODGE TEMP RITE", "BWT", "CAFES SOUBIRA", "CAPIC", "CAPITANI", "CAPLAIN", "CARAY", "CAREL", "CARPIGIANI", "CASTEL MAC", "CAT SERV", "CATEQUIP", "CB", "CHARVET", "CIB (BONNET - THIRODE)", "CIMBALI", "CODIGEL", "COLGED", "COMBISTEEL", "COMENDA", "COMETTO", "CONTINENTALE CHIMITEC", "CONVOTHERM", "COSMETAL", "CTA", "DADAUX", "DAGARD", "DANFOSS", "DANUBE", "DELABIE", "DELCOUPE", "DESCO", "DESMON", "DIAMOND", "DIHR", "DITO SAMA", "DIXELL", "DUBIX", "DUCHENE", "DYNAMIC", "E+F", "ECP GROUP", "EDAFIM", "ELECREM", "ELECTROCALORIQUE", "ELECTROLUX", "ELFRAMO", "ELIWELL", "EMB SAGAA", "EMERSON", "ENODIS", "EPGC", "ERDEMIL", "EUROFOURS", "EUROFRED", "EVCO", "EVERPURE", "FAGOR", "FIA", "FOINOX", "FONTAINE REFRIGEREE ROLLER GRILL", "FORCAR FIMAR", "FOSTER", "FOUR HOUNO", "FRANSTAL", "FRI JADO", "FRIFRI", "FRIGINOX", "FRIMA", "FRINOX", "FURNOTEL", "GAMKO", "GECAM", "GFF", "GIGA", "GIRBAU", "GRANDIMPIANTI", "GRANULDISK", "GUYON CUISSON (ENODIS)", "HABASIT", "HENKELMAN", "HENNY PENNY", "HITACHI", "HOBART", "HOONVED", "HOSHIZAKI", "IARP", "IGF", "IGLU", "ILSA", "IMESA", "INDUSTRADE", "INFRICO", "ISA", "ISECO", "ISOTECH", "ITV", "JEMI", "JEROS", "JOHNSON", "JUDO", "JUNO", "JV LA FRANCAISE", "KENWOOD", "KIDE EPTA", "KRAMPOUZ", "KROMO", "KRONEN", "KUPPERSBUSCH", "L2G", "LAE", "LAMBER", "LAVEZZINI", "LINEA", "LMC EUROCOLD", "MAFDEL", "MARECHAL", "MARENO", "MATFER", "MBM", "MECNOSUD", "MEIKO", "MENAGER", "MERCATUS", "METOS", "METTLER TOLEDO", "MIELE", "MIRROR", "MISA", "MISTRAL", "MKN", "MODULINE", "MONDIAL GROUPE", "MULTIVAC", "MUSSANA", "NASAT", "NORTECH", "NOSEM", "NUMATIC", "NYBORG", "OCF VITRINE", "ODIC", "ODIS", "OLIS", "OMAS", "ONNERA GROUP ECOLINE", "ORA", "ORVED", "PAVAILLER", "PERMO ADOUCISSEUR", "PITCO", "POLARIS", "PRIMUS", "PROFESSIONNAL SPARES", "PROFROID", "PSV", "RATIONAL CHARIOT", "RHEAVENDORS", "RENEKA", "RICA", "RICAMBI", "ROBOT COUPE", "ROLLER GRILL", "RONDO", "ROSINOX", "ROUND UP", "SAGOP", "SALAISON PIVETEAU", "SALVA", "SALVIS", "SAMMIC", "SANTOS", "SAROMICA", "SASA", "SCAL", "SCOTSMAN (SCODIF)", "SEDA", "SEE", "SFE", "SIFEC", "SILANOS", "SILKO", "SIMONELLI", "SIRMAN", "SMEG", "SOCAMEL", "SOFINOR INOTECH", "SOFRACA", "SOPACOM", "SOWEBO", "STEPHAN", "TECHNITALIA", "TECHNITRANS", "TECNODOM", "TECNOLOGIC", "TECNOEKA", "TEFCOLD", "TELLIER", "THIRODE", "TIFFON", "TOTALINE", "TOURNUS", "TRANCHEUR", "TRUE", "TURBOCHEF", "UNOX", "VALENTINE", "VALIDEX", "VALKO", "VAUCONSANT", "VERDER", "VIESSMANN", "VIGITEMP", "VITAMIX", "VITO", "VMI", "WALO", "WARING", "WASCATOR", "WHIRLPOOL", "WIESSMANN", "WILLIAMS", "WINSTON", "WINTERHALTER", "WOLK", "WOODLEY", "ZANOLLI", "ZANOTTI", "ZANUSSI", "ZUMEX"];
+    let fournisseursInThisPage = [];
+    fournisseurs = this.removeDuplicates(fournisseurs);
 
     // Change the default file icon to a folder icon for all items in the list
     fournisseurs.forEach(function (NomFournisseur) {
@@ -165,6 +168,28 @@ export default class IListdSearchWebPart extends React.Component<IListSearchProp
         let fournisseurImage = fournisseurNameDiv.find("img");
         // Change the image source
         fournisseurImage.attr("src", "https://quietalis365.sharepoint.com/sites/intranet/logo_fournisseurs/" + NomFournisseur + ".png");
+
+        // Push the fournisseur name to the array of fournisseurs in this page
+        fournisseursInThisPage.push(NomFournisseur);
+      }
+    });
+    this._removeSpansThatDontContainFournisseur(fournisseursInThisPage);
+  }
+
+  // Function that removes from the DOM the spans that don't contain a fournisseur name
+  private _removeSpansThatDontContainFournisseur = (arr: any[]) => {
+    // Select all spans that are under a div with class "ms-DetailsRow-cell"
+    let spans = $("div.ms-DetailsRow-cell span");
+
+    // For each span, check if it contains a arr element
+    spans.each(function () {
+      let span = $(this);
+      let spanText = span.text();
+      if (arr.indexOf(spanText) == -1) {
+        // If it doesn't, remove it from the DOM
+        //span.parent().parent().remove();
+        console.log("Should delete :");
+        console.log(spanText);
       }
     });
   }
