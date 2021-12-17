@@ -2,6 +2,8 @@ import * as React from 'react';
 import styles from './FiltreContactsQuietalis.module.scss';
 import { IFiltreContactsQuietalisProps } from './IFiltreContactsQuietalisProps';
 import { escape } from '@microsoft/sp-lodash-subset';
+// Import styles
+import './styles.css';
 
 export default class FiltreContactsQuietalis extends React.Component<IFiltreContactsQuietalisProps, {}> {
   public render(): React.ReactElement<IFiltreContactsQuietalisProps> {
