@@ -8,16 +8,22 @@ import './styles.css';
 export default class FiltreContactsQuietalis extends React.Component<IFiltreContactsQuietalisProps, {}> {
   public render(): React.ReactElement<IFiltreContactsQuietalisProps> {
     return (
-      <div className={ styles.filtreContactsQuietalis }>
-        <div className={ styles.container }>
-          <div className={ styles.row }>
-            <div className={ styles.column }>
-              <span className={ styles.title }>Welcome to SharePoint!</span>
-              <p className={ styles.subTitle }>Customize SharePoint experiences using Web Parts.</p>
-              <p className={ styles.description }>{escape(this.props.description)}</p>
-              <a href="https://aka.ms/spfx" className={ styles.button }>
-                <span className={ styles.label }>Learn more</span>
-              </a>
+      <div className={styles.filtreContactsQuietalis}>
+        <div className={styles.container}>
+          <a className={styles.refinerName} href='#'>
+            <div className={styles.InlineBlock}>
+              Agence
+            </div>
+          </a>
+          <div className={styles.unselSec}>
+            <div className={styles.unselshortList}>
+              <div className={styles.value}>
+                <a className={styles.displayValue} href='#'>
+                  <div className={styles.refValue}>
+                    Agence de Marseille
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
