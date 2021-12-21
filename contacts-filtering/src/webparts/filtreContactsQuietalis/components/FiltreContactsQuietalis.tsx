@@ -6,92 +6,38 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import './styles.css';
 
 export default class FiltreContactsQuietalis extends React.Component<IFiltreContactsQuietalisProps, {}> {
+  // Function to render this div :
+  // <div className=[styles.value]> <a href='#' className={styles.filterLink}><div className=[styles.refValue]>{filterValue}</div></a></div>
+  // With the filterValue being the values of an array of strings and the href being 'https://quietalis365.sharepoint.com/sites/quietalis-annuaire#k=' + filterValue
+  // The function below will render a div for each of the values of the array
+  public renderFilters(filterValue: string[]): React.ReactElement<IFiltreContactsQuietalisProps> {
+    let renderFilters: React.ReactElement<IFiltreContactsQuietalisProps>[] = [];
+    for (let i = 0; i < filterValue.length; i++) {
+      renderFilters.push(
+        <div className={styles.value}>
+          <a href={'https://quietalis365.sharepoint.com/sites/quietalis-annuaire#k=' + filterValue[i]} className={styles.filterLink}>
+            <div className={styles.refValue}>{filterValue[i]}</div>
+          </a>
+        </div>
+      );
+    }
+    return (
+      <div>{renderFilters}</div>
+    );
+  }
+
   public render(): React.ReactElement<IFiltreContactsQuietalisProps> {
     return (
       <div className={styles.filtreContactsQuietalis}>
         <div className={styles.container}>
           <a className={styles.refinerName} href='#'>
             <div className={styles.InlineBlock}>
-              Agence
+              Agences
             </div>
           </a>
           <div className={styles.unselSec}>
             <div className={styles.unselshortList}>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Agence d'Angers</div>
-                </a>
-              </div>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Agence de Marseille</div>
-                </a>
-              </div>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Agence de Paris Ouest</div>
-                </a>
-              </div>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Agence de Rennes</div>
-                </a>
-              </div>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Agence de Rouen</div>
-                </a>
-              </div>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Agence de Saint-Quentin</div>
-                </a>
-              </div>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Agence de Strasbourg</div>
-                </a>
-              </div>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Agence de Toulouse</div>
-                </a>
-              </div>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Agence d'Orléans</div>
-                </a>
-              </div>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Agence du Mans</div>
-                </a>
-              </div>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Siège</div>
-                </a>
-              </div>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Direction Régionale BARA</div>
-                </a>
-              </div>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Direction Régionale GO</div>
-                </a>
-              </div>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Direction Régionale IDF</div>
-                </a>
-              </div>
-              <div className={styles.value}>
-                <a className={styles.filterLink} href='#'>
-                  <div className={styles.refValue}>Direction Régionale SO</div>
-                </a>
-              </div>
+              {this.renderFilters(["Agence d'Angers", "Agence de Bordeaux", "Agence de Cannes", "Agence de Dijon", "Agence de Lille", "Agence de Lyon", "Agence de Nancy", "Agence de Nantes", "Agence de Paris Est", "Agence de Paris Nord", "Agence de Paris Ouest", "Agence de Rennes", "Agence de Rouen", "Agence de Saint-Quentin", "Agence de Strasbourg", "Agence de Toulouse", "Agence de Strasbourg", "Agence d'Orléans", "Agence du Mans", "Siège"])}
             </div>
           </div>
         </div>
