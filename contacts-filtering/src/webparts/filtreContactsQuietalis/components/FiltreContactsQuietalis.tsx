@@ -37,7 +37,7 @@ export default class FiltreContactsQuietalis extends React.Component<IFiltreCont
           </a>
           <div className={styles.unselSec}>
             <div className={styles.unselshortList}>
-              {this.renderFilters(["Agence d'Angers", "Agence de Bordeaux", "Agence de Cannes", "Agence de Dijon", "Agence de Lille", "Agence de Lyon", "Agence de Nancy", "Agence de Nantes", "Agence de Paris Est", "Agence de Paris Nord", "Agence de Paris Ouest", "Agence de Rennes", "Agence de Rouen", "Agence de Saint-Quentin", "Agence de Strasbourg", "Agence de Toulouse", "Agence de Strasbourg", "Agence d'Orléans", "Agence du Mans", "Siège"])}
+              {this.renderFilters(["Agence d'Angers", "Agence de Besançon", "Agence de Bordeaux", "Agence de Cannes", "Agence de Dijon", "Agence de Lille", "Agence de Lyon", "Agence de Lorient", "Agence de Marseille", "Agence de Nancy", "Agence de Nantes", "Agence de Nimes", "Agence de Paris Est", "Agence de Paris Nord", "Agence de Paris Ouest", "Agence de Rennes", "Agence de Rouen", "Agence de Saint-Quentin", "Agence de Toulouse", "Agence de Strasbourg", "Agence d'Orléans", "Agence du Mans", "Siège"])}
             </div>
           </div>
         </div>
