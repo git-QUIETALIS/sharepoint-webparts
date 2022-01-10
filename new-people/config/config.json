@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "new-people-showcase-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/newPeopleShowcase/NewPeopleShowcaseWebPart.js",
+          "manifest": "./src/webparts/newPeopleShowcase/NewPeopleShowcaseWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "NewPeopleShowcaseWebPartStrings": "lib/webparts/newPeopleShowcase/loc/{locale}.js"
+  }
+}
