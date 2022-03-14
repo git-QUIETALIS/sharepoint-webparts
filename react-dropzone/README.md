@@ -37,7 +37,7 @@ Cette DropZone permet de déposer des fichiers afin qu'ils soient envoyés dans 
 ## Prerequisites
 
 > Any special pre-requisites?
-- [Node.js](https://nodejs.org/en/download/releases/) version 14.x - 16.x
+- [Node.js](https://nodejs.org/en/download/releases/) version 12
 - SPO [SharePoint Framework](https://aka.ms/spfx) version 1.13
 
 ## Solution
